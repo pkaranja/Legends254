@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+
+      <RelativeLayout
+            android:id="@+id/tapView_Signin"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+          	<LinearLayout
+          	    android:layout_width="fill_parent"
+          	    android:layout_height="wrap_content"
+          	    android:layout_alignParentBottom="true"
+          	    android:layout_alignParentLeft="true"
+          	    android:orientation="vertical"
+          	    android:padding="20dp" >
+
+          	    <EditText
+          	        android:id="@+id/uname"
+          	        android:layout_width="match_parent"
+          	        android:layout_height="wrap_content"
+          	        android:layout_marginBottom="15dp"
+          	        android:drawablePadding="10dp"
+          	        android:hint="@string/username"
+          	        android:imeOptions="actionNext"
+          	        android:inputType="text|textCapWords"
+          	        android:padding="10dp"
+          	        android:singleLine="true" >
+
+          	        <requestFocus />
+          	    </EditText>
+
+          	    <EditText
+          	        android:id="@+id/pwd"
+          	        android:layout_width="match_parent"
+          	        android:layout_height="wrap_content"
+          	        android:layout_marginBottom="25dp"
+          	        android:drawablePadding="10dp"
+          	        android:hint="@string/password"
+          	        android:imeOptions="actionDone"
+          	        android:inputType="textPassword"
+          	        android:padding="10dp"
+          	        android:singleLine="true" />
+
+          	    <Button
+          	        android:id="@+id/login"
+          	        android:layout_width="match_parent"
+          	        android:layout_height="wrap_content"
+          	        android:text="@string/signin"
+          	        android:textColor="#ffffff"
+          	        android:textSize="20sp" />
+          	</LinearLayout>
+
+        </RelativeLayout>
+</RelativeLayout>

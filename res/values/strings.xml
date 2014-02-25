@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<!-- Global Strings -->
     <string name="app_name">Legends254</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-
+    <string name="app_id">599440406802394</string>
+    <string name="cancel">Cancel</string>
+     
+    <!-- Login Page -->
+    <string name="signin">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    
+    <!-- Register Page -->
+    <string name="name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="signup">Sign Up</string>
+    <string name="facebook">Connect using facebook</string>
+   
+    
 </resources>
