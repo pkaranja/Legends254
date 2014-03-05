@@ -4,15 +4,13 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,23 +29,22 @@ public class RegisterActivity extends Activity {
 	EditText nameText, usernameText, passwordText, confirmText, emailText;
 	Button register, facebook;
 	Factory factory;
+	Context context;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		factory = new Factory();
-		//Hide the status bar
-		if (Build.VERSION.SDK_INT < 16) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }else{
-        	ActionBar actionBar = getActionBar();
-        	actionBar.hide();
-        }
+
+		//Instantiate Context
+		context = this.getApplicationContext();
+		
+		//Hide actionbar
+		factory.hideActionbar(this);
 		//Load View
 		setContentView(R.layout.register);
 		
 		//Check connection
-		if ( factory.isOnline() == false ){
+		if ( factory.isOnline(context) == false ){
 			Toast.makeText(getApplicationContext(), "Connection was lost, please make sure you are connected to a data network then try again", Toast.LENGTH_LONG ).show();
 			return;
 		}

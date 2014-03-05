@@ -15,12 +15,14 @@
 	
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+       <item name="android:windowBackground">@drawable/app_background</item>
+        
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
     <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@drawable/bot</item>
+        <item name="android:windowBackground">@drawable/app_background</item>
         <item name="buttonBarStyle">@style/ButtonBar</item>
         <item name="buttonBarButtonStyle">@style/ButtonBarButton</item>
         <item name="android:windowActionBar">false</item>

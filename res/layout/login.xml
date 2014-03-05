@@ -3,58 +3,131 @@
     android:id="@+id/parentView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/app_background"
     android:orientation="vertical" >
 
-
       <RelativeLayout
-            android:id="@+id/tapView_Signin"
+          android:id="@+id/tapView_Signin"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentTop="true"
+          android:orientation="vertical" >
+	
+      	<LinearLayout
+		    android:id="@+id/formwrap"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_above="@+id/buttonwrap"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginRight="20dp"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginTop="40dp"
+		    android:layout_marginBottom="80dp"
+		    android:background="@drawable/roundedcorners"
+		    android:orientation="vertical"
+		    android:padding="10dp" >
+
+		  
+		    <EditText
+		        android:id="@+id/uname"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="5dp"
+		        android:background="@drawable/edittext_style"
+		        android:hint="@string/username"
+		        android:imeOptions="actionNext"
+		        android:inputType="text"
+		        android:padding="10dp"
+		        android:singleLine="true" />
+
+		    <EditText
+		        android:id="@+id/pwd"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="5dp"
+		        android:background="@drawable/edittext_style"
+		        android:hint="@string/password"
+		        android:imeOptions="actionNext"
+		        android:inputType="textPassword"
+		        android:padding="10dp"
+		        android:singleLine="true" />
+		</LinearLayout>
+		
+		<TextView
+		    android:id="@+id/textView1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_above="@+id/buttonwrap"
+		    android:layout_centerHorizontal="true"
+    		android:gravity="center"
+		    android:paddingRight="35dp"
+		    android:paddingLeft="45dp"
+		    android:color="#FFFFFF"
+		    android:textColor="#FFFFFF"
+		    android:textSize="14sp"
+		    android:layout_marginBottom="22dp"
+		    android:text="Forgot your password ?" />
+      	
+        <LinearLayout
+            android:id="@+id/buttonwrap"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:weightSum="1.0" >
 
-          	<LinearLayout
-          	    android:layout_width="fill_parent"
-          	    android:layout_height="wrap_content"
-          	    android:layout_alignParentBottom="true"
-          	    android:layout_alignParentLeft="true"
-          	    android:orientation="vertical"
-          	    android:padding="20dp" >
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:shadowColor="#FFFFFF"
+	  			android:shadowDx="1"
+	  			android:shadowDy="1"
+	  			android:shadowRadius="2"
+                android:background="@drawable/greybutton"
+                android:text="@string/cancel"
+                android:textColor="#000000" />
 
-          	    <EditText
-          	        android:id="@+id/uname"
-          	        android:layout_width="match_parent"
-          	        android:layout_height="wrap_content"
-          	        android:layout_marginBottom="15dp"
-          	        android:drawablePadding="10dp"
-          	        android:hint="@string/username"
-          	        android:imeOptions="actionNext"
-          	        android:inputType="text|textCapWords"
-          	        android:padding="10dp"
-          	        android:singleLine="true" >
+            <Button
+                android:id="@+id/login"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight=".5"
+                android:background="@drawable/greenbutton"
+                android:text="@string/login"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/facebook"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/formwrap"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bluebutton"
+            android:text="@string/facebook_login"
+            android:textColor="#FFFFFF"
+      	  	android:gravity="center"
+      	  	android:drawableLeft="@drawable/facebook"
+             />
+		<View 
+	   		android:layout_width="fill_parent"
+	   		android:layout_height="2dp"
+	   		android:layout_below="@+id/facebook"
+	   		android:layout_marginRight="40dp"
+	   		android:layout_marginLeft="40dp"
+	   		android:layout_marginTop="15dp"
+	   		android:layout_marginBottom="15dp"
+	   		android:layout_centerHorizontal="true"  
+	   		android:background="#CCCCCC"/>
 
-          	        <requestFocus />
-          	    </EditText>
-
-          	    <EditText
-          	        android:id="@+id/pwd"
-          	        android:layout_width="match_parent"
-          	        android:layout_height="wrap_content"
-          	        android:layout_marginBottom="25dp"
-          	        android:drawablePadding="10dp"
-          	        android:hint="@string/password"
-          	        android:imeOptions="actionDone"
-          	        android:inputType="textPassword"
-          	        android:padding="10dp"
-          	        android:singleLine="true" />
-
-          	    <Button
-          	        android:id="@+id/login"
-          	        android:layout_width="match_parent"
-          	        android:layout_height="wrap_content"
-          	        android:text="@string/signin"
-          	        android:textColor="#ffffff"
-          	        android:textSize="20sp" />
-          	</LinearLayout>
-
-        </RelativeLayout>
+    </RelativeLayout>
 </RelativeLayout>
