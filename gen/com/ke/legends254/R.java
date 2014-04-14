@@ -232,9 +232,10 @@ containing a value of this type.
         public static final int splash_animation=0x7f02002c;
     }
     public static final class id {
-        public static final int animate=0x7f040026;
-        public static final int buttonwrap=0x7f04001b;
-        public static final int cancel=0x7f04001f;
+        public static final int animate=0x7f04002a;
+        public static final int button=0x7f040025;
+        public static final int buttonwrap=0x7f04001d;
+        public static final int cancel=0x7f040021;
         public static final int com_facebook_login_activity_progress_bar=0x7f040005;
         public static final int com_facebook_picker_activity_circle=0x7f040004;
         public static final int com_facebook_picker_checkbox=0x7f040007;
@@ -255,25 +256,28 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f040017;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f040015;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f040016;
-        public static final int confirm=0x7f040024;
-        public static final int email=0x7f040023;
-        public static final int facebook=0x7f040021;
-        public static final int formwrap=0x7f04001a;
-        public static final int image2=0x7f040027;
+        public static final int confirm=0x7f040028;
+        public static final int email=0x7f040027;
+        public static final int facebook=0x7f040023;
+        public static final int formwrap=0x7f04001c;
+        public static final int image=0x7f040019;
+        public static final int image2=0x7f04002b;
         public static final int large=0x7f040002;
-        public static final int linearLayout1=0x7f040028;
-        public static final int login=0x7f040020;
-        public static final int name=0x7f040022;
+        public static final int linearLayout1=0x7f04002c;
+        public static final int login=0x7f040022;
+        public static final int message=0x7f04001a;
+        public static final int name=0x7f040026;
         public static final int normal=0x7f040001;
         public static final int parentView=0x7f040018;
         public static final int picker_subtitle=0x7f040012;
-        public static final int pwd=0x7f04001d;
-        public static final int signin=0x7f040029;
-        public static final int signup=0x7f040025;
+        public static final int pwd=0x7f04001f;
+        public static final int signin=0x7f04002d;
+        public static final int signup=0x7f040029;
         public static final int small=0x7f040000;
-        public static final int tapView_Signin=0x7f040019;
-        public static final int textView1=0x7f04001e;
-        public static final int uname=0x7f04001c;
+        public static final int tapView_Signin=0x7f04001b;
+        public static final int text=0x7f040024;
+        public static final int textView1=0x7f040020;
+        public static final int uname=0x7f04001e;
     }
     public static final class layout {
         public static final int com_facebook_friendpickerfragment=0x7f030000;
@@ -290,9 +294,11 @@ containing a value of this type.
         public static final int com_facebook_placepickerfragment_list_row=0x7f03000b;
         public static final int com_facebook_search_bar_layout=0x7f03000c;
         public static final int com_facebook_usersettingsfragment=0x7f03000d;
-        public static final int login=0x7f03000e;
-        public static final int register=0x7f03000f;
-        public static final int splash=0x7f030010;
+        public static final int dialogue=0x7f03000e;
+        public static final int login=0x7f03000f;
+        public static final int main=0x7f030010;
+        public static final int register=0x7f030011;
+        public static final int splash=0x7f030012;
     }
     public static final class string {
         public static final int app_id=0x7f07001a;
@@ -367,11 +373,13 @@ containing a value of this type.
          */
         public static final int AppTheme=0x7f080003;
         public static final int ButtonBar=0x7f080005;
-        public static final int ButtonBarButton=0x7f080006;
-        public static final int FullscreenActionBarStyle=0x7f080007;
+        public static final int FullscreenActionBarStyle=0x7f080009;
         public static final int FullscreenTheme=0x7f080004;
+        public static final int GenericProgressIndicator=0x7f080006;
         public static final int com_facebook_loginview_default_style=0x7f080000;
         public static final int com_facebook_loginview_silver_style=0x7f080001;
+        public static final int cust_dialog=0x7f080007;
+        public static final int dialog_title_style=0x7f080008;
     }
     public static final class styleable {
         /** 

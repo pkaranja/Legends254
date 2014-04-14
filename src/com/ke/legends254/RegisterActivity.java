@@ -30,10 +30,11 @@ public class RegisterActivity extends Activity {
 	Button register, facebook;
 	Factory factory;
 	Context context;
+	ProgressDialog progressDialog;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		factory = new Factory();
+		factory = new Factory(this);
 
 		//Instantiate Context
 		context = this.getApplicationContext();
@@ -43,6 +44,8 @@ public class RegisterActivity extends Activity {
 		//Load View
 		setContentView(R.layout.register);
 		
+		//factory.dialogueLoader(this, "Register", "Please wait as we save your data");
+		
 		//Check connection
 		if ( factory.isOnline(context) == false ){
 			Toast.makeText(getApplicationContext(), "Connection was lost, please make sure you are connected to a data network then try again", Toast.LENGTH_LONG ).show();
@@ -51,6 +54,14 @@ public class RegisterActivity extends Activity {
 		
 		Parse.initialize(this, "makinbymGIvXisIUXyjYqKsFqB3xTGRlohnRKpDq", "GueDSIGPHPudH7Oun7MkifVaOFxpaRorLDLQ64gF");
 		ParseFacebookUtils.initialize("599440406802394");
+		
+		//You are already logged in
+		ParseUser currentUser = ParseUser.getCurrentUser();
+	    if ((currentUser != null) && ParseFacebookUtils.isLinked(currentUser)) {
+	    	Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+	    	startActivity(i);
+	    	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+	    }
 		
 		//Cancel and go back
 		final Button cancel = (Button) findViewById(R.id.cancel);
@@ -66,15 +77,28 @@ public class RegisterActivity extends Activity {
 		facebook = (Button) findViewById(R.id.facebook);
 		facebook.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
+        	RegisterActivity.this.progressDialog = ProgressDialog.show(
+        		RegisterActivity.this, "", "Registering...", true);
+         		         	    
+         	    factory.getKeyHash(RegisterActivity.this);
+         	    
         		ParseFacebookUtils.logIn(Arrays.asList("email", Permissions.Friends.ABOUT_ME),RegisterActivity.this, new LogInCallback() {
         			@Override
 	  				  public void done(ParseUser user, ParseException err) {
 	  				    if (user == null) {
-	  				      Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+	  				    	Toast.makeText(getApplicationContext(), "Registration failed, please try again", Toast.LENGTH_LONG).show();
 	  				    } else if (user.isNew()) {
-	  				      Log.d("MyApp", "User signed up and logged in through Facebook!");
+	  				    	RegisterActivity.this.progressDialog.dismiss();
+            	            
+        	            	Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+        	            	startActivity(i);
+        	            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	  				    } else {
-	  				      Log.d("MyApp", "User logged in through Facebook!");
+	  				    	RegisterActivity.this.progressDialog.dismiss();
+            	            
+        	            	Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+        	            	startActivity(i);
+        	            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	  				    }
 	  				  }
 				});
@@ -144,8 +168,9 @@ public class RegisterActivity extends Activity {
         			return;
         		}
         		
-        		final ProgressDialog ringProgressDialog = ProgressDialog.show(RegisterActivity.this, "Please wait ...",	"Signing up...", true);
-        		ringProgressDialog.setCancelable(false);
+        		RegisterActivity.this.progressDialog = ProgressDialog.show(
+                		RegisterActivity.this, "Please wait", "Signing up...", true);
+                 		
         		new Thread(new Runnable() {
         			@Override
         			public void run() {
@@ -164,18 +189,22 @@ public class RegisterActivity extends Activity {
         		        		  public void done(ParseException e) {
         		        		    if (e == null) {
         		        		      // Hooray! Let them use the app now.
-        		        		    	Log.d("Signup", "Success, we are now registered");
+        	        	            	Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+        	        	            	startActivity(i);
+        	        	            	overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        	        	            	RegisterActivity.this.progressDialog.dismiss();
         		        		    } else {
         		        		      // Sign up didn't succeed. Look at the ParseException
         		        		      // to figure out what went wrong
-        		        		      Log.e("Signup", e.toString());
+        		        		    	RegisterActivity.this.progressDialog.dismiss();
+        		        		    	Toast.makeText(getApplicationContext(), "Registration failed, please try again", Toast.LENGTH_LONG).show();
+        		        		    	
         		        		    }
         		        		  }
         		        		});
         				} catch (Exception e) {
         					Log.e("Sign up", "Error generating dialogue."+e.toString());
         				}
-        				ringProgressDialog.dismiss();
         			}
         		}).start();
             }
